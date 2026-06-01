@@ -20,6 +20,18 @@
     }
 
     /* 테마별 테마 변수 정의 */
+    body.theme-tropical {
+      --accent: #059669;
+      --accent-light: rgba(5, 150, 105, 0.12);
+      --accent-shadow: rgba(5, 150, 105, 0.22);
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    }
+    body.theme-dry {
+      --accent: #d97706;
+      --accent-light: rgba(217, 119, 6, 0.12);
+      --accent-shadow: rgba(217, 119, 6, 0.22);
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    }
     body.theme-temperate {
       --accent: #e8590c;
       --accent-light: rgba(232, 89, 12, 0.12);
@@ -689,6 +701,8 @@
       <div class="control-row">
         <!-- 2차 기후 서브탭 -->
         <div class="subtabs" id="climate-subtabs">
+          <button class="tab-btn" data-climate="tropical">🌴 열대 기후</button>
+          <button class="tab-btn" data-climate="dry">🐪 건조 기후</button>
           <button class="tab-btn active" data-climate="temperate">☀️ 온대 기후</button>
           <button class="tab-btn" data-climate="subarctic">🌲 냉대 기후</button>
           <button class="tab-btn" data-climate="polar">❄️ 한대 기후</button>
@@ -722,7 +736,177 @@
     <!-- 메인 컨텐츠 영역 -->
     <div class="content-wrapper">
 
-      <!-- ================= 01. 온대 기후 ================= -->
+      <!-- ================= 01. 열대 기후 ================= -->
+      <section class="climate-section" id="sec-tropical">
+        <div class="section-slogan">
+          <p class="slogan-title">"연중 무더운 날씨와 울창한 밀림, 비와 더위를 이겨내는 삶의 지혜"</p>
+        </div>
+        <div class="section-columns">
+          <!-- 1열: 기후 그래프 -->
+          <div class="graphs-card">
+            <div class="card-item">
+              <div class="chart-container" data-chart="af"></div>
+              <p class="card-item-title">📊 열대 우림 기후(Af) 그래프</p>
+            </div>
+            <div class="card-item">
+              <div class="chart-container" data-chart="am"></div>
+              <p class="card-item-title">📊 열대 몬순 기후(Am) 그래프</p>
+            </div>
+            <div class="card-item">
+              <div class="chart-container" data-chart="aw"></div>
+              <p class="card-item-title">📊 사바나 기후(Aw) 그래프</p>
+            </div>
+          </div>
+          <!-- 2열: 사진 -->
+          <div class="photos-card">
+            <div class="card-item">
+              <img src="images/tropical_climate_bg.png" alt="열대 고상 가옥">
+              <p class="card-item-title">🛖 지면에서 띄워 지은 전통 고상 가옥</p>
+            </div>
+            <div class="card-item">
+              <img src="images/tropical_climate_sub1.png" alt="플랜테이션 농업">
+              <p class="card-item-title">🍌 대규모 상업 작물을 재배하는 플랜테이션</p>
+            </div>
+            <div class="card-item">
+              <img src="images/tropical_climate_sub2.png" alt="사바나 초원">
+              <p class="card-item-title">🦁 동물이 노니는 광활한 사바나 초원</p>
+            </div>
+          </div>
+          <!-- 3열: 텍스트 카드 및 단어 바구니 -->
+          <div class="text-column">
+            <div class="card-block">
+              <h2 class="block-title">📌 기후 특징</h2>
+              <ul class="features-list">
+                <li>
+                  <span class="feature-tag">기온</span>
+                  <span class="feature-detail">연중 고온 <span class="arrow">➡️</span> 연교차보다 <span class="blank" data-answer="일교차">일교차</span>가 큼</span>
+                </li>
+                <li>
+                  <span class="feature-tag">강수 및 식생</span>
+                  <span class="feature-detail">적도 수렴대 영향으로 강수량 많음 <span class="arrow">➡️</span> 울창한 밀림(열대 우림) 또는 사바나 초원 형성</span>
+                </li>
+                <li>
+                  <span class="feature-tag">주요 지역</span>
+                  <span class="feature-detail">적도 주변 및 <span class="blank" data-answer="저위도">저위도</span> 지역 (아마존 분지, 동남아시아 등)</span>
+                </li>
+              </ul>
+            </div>
+            <div class="card-block">
+              <h2 class="block-title">🏡 주민 생활 모습(의·식·주)</h2>
+              <ul class="features-list">
+                <li>
+                  <span class="feature-tag">의(衣)생활</span>
+                  <span class="feature-detail">열기 극복 <span class="arrow">➡️</span> 통풍이 잘되는 <span class="blank" data-answer="얇고 가벼운 옷">얇고 가벼운 옷</span> 착용</span>
+                </li>
+                <li>
+                  <span class="feature-tag">식(食)생활</span>
+                  <span class="feature-detail">
+                    • <b>이동식 화전 농업:</b> 숲에 불을 질러 만든 밭에서 카사바, <span class="blank" data-answer="얌">얌</span> 등 재배<br>
+                    • <b>플랜테이션:</b> 선진국의 자본·기술 + 원주민의 노동력 결합 <span class="arrow">➡️</span> 바나나, <span class="blank" data-answer="카카오">카카오</span>, 커피 등 상업 작물 재배
+                  </span>
+                </li>
+                <li>
+                  <span class="feature-tag">주(住)생활</span>
+                  <span class="feature-detail">
+                    • <b>구조 특징:</b> 습기와 열기, 해충 방지 <span class="arrow">➡️</span> 바닥을 높인 <span class="blank" data-answer="고상 가옥">고상 가옥</span><br>
+                    • <b>지붕 경사:</b> 잦은 강수(스콜) 극복 <span class="arrow">➡️</span> <span class="blank" data-answer="가파른 경사 지붕">가파른 경사 지붕</span> 설계
+                  </span>
+                </li>
+              </ul>
+              <!-- 단어 바구니 -->
+              <div class="word-bank">
+                <div class="word-bank-title">💡 단어 바구니 (드래그하거나 클릭 후 빈칸을 누르세요)</div>
+                <div class="word-bank-chips"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 02. 건조 기후 ================= -->
+      <section class="climate-section" id="sec-dry">
+        <div class="section-slogan">
+          <p class="slogan-title">"메마른 모래 대지와 끝없는 초원, 물을 찾아 적응해가는 생명의 터전"</p>
+        </div>
+        <div class="section-columns">
+          <!-- 1열: 기후 그래프 -->
+          <div class="graphs-card">
+            <div class="card-item">
+              <div class="chart-container" data-chart="bw"></div>
+              <p class="card-item-title">📊 사막 기후(BW) 그래프</p>
+            </div>
+            <div class="card-item">
+              <div class="chart-container" data-chart="bs"></div>
+              <p class="card-item-title">📊 스텝 기후(BS) 그래프</p>
+            </div>
+          </div>
+          <!-- 2열: 사진 -->
+          <div class="photos-card">
+            <div class="card-item">
+              <img src="images/dry_climate_bg.png" alt="흙벽돌 가옥">
+              <p class="card-item-title">🏡 평평한 지붕과 두꺼운 벽을 지닌 흙벽돌 가옥</p>
+            </div>
+            <div class="card-item">
+              <img src="images/dry_climate_sub1.png" alt="오아시스 농업">
+              <p class="card-item-title">🌴 사막 속 젖줄인 오아시스 농업 경관</p>
+            </div>
+            <div class="card-item">
+              <img src="images/dry_climate_sub2.png" alt="유목민의 게르">
+              <p class="card-item-title">⛺ 초원 지대 유목민의 전통 가옥 게르</p>
+            </div>
+          </div>
+          <!-- 3열: 텍스트 카드 및 단어 바구니 -->
+          <div class="text-column">
+            <div class="card-block">
+              <h2 class="block-title">📌 기후 특징</h2>
+              <ul class="features-list">
+                <li>
+                  <span class="feature-tag">강수량 부족</span>
+                  <span class="feature-detail">연 강수량 <span class="blank" data-answer="500mm">500mm</span> 미만 <span class="arrow">➡️</span> 강수량보다 증발량이 많음</span>
+                </li>
+                <li>
+                  <span class="feature-tag">기후 구분</span>
+                  <span class="feature-detail">연 강수량 250mm 미만인 <span class="blank" data-answer="사막 기후">사막 기후</span> + 250~500mm인 <span class="blank" data-answer="스텝 기후">스텝 기후</span> 구분</span>
+                </li>
+                <li>
+                  <span class="feature-tag">주요 지역</span>
+                  <span class="feature-detail">중위도 고압대 주변 및 대륙 내부 (사하라 사막, 중앙아시아 초원 등)</span>
+                </li>
+              </ul>
+            </div>
+            <div class="card-block">
+              <h2 class="block-title">🏡 주민 생활 모습(의·식·주)</h2>
+              <ul class="features-list">
+                <li>
+                  <span class="feature-tag">의(衣)생활</span>
+                  <span class="feature-detail">강한 햇빛, 모래바람, 일교차 극복 <span class="arrow">➡️</span> 온몸을 감싸는 헐렁한 <span class="blank" data-answer="긴 옷">긴 옷</span> 착용</span>
+                </li>
+                <li>
+                  <span class="feature-tag">식(食)생활</span>
+                  <span class="feature-detail">
+                    • <b>사막 기후:</b> 오아시스 주변에서 대추야자, 밀 재배 (<span class="blank" data-answer="오아시스 농업">오아시스 농업</span>)<br>
+                    • <b>스텝 기후:</b> 물과 풀을 찾아 양, 염소 등을 기르는 <span class="blank" data-answer="유목">유목</span> 발달
+                  </span>
+                </li>
+                <li>
+                  <span class="feature-tag">주(住)생활</span>
+                  <span class="feature-detail">
+                    • <b>사막 가옥:</b> 나무 부족 ➡️ <span class="blank" data-answer="흙벽돌 가옥">흙벽돌 가옥</span> (두꺼운 벽, 작은 창문, 평평한 지붕)<br>
+                    • <b>스텝 가옥:</b> 이동에 편리한 조립식 가옥인 <span class="blank" data-answer="게르">게르</span>(몽골) 활용
+                  </span>
+                </li>
+              </ul>
+              <!-- 단어 바구니 -->
+              <div class="word-bank">
+                <div class="word-bank-title">💡 단어 바구니 (드래그하거나 클릭 후 빈칸을 누르세요)</div>
+                <div class="word-bank-chips"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 03. 온대 기후 ================= -->
       <section class="climate-section active" id="sec-temperate">
         <div class="section-slogan">
           <p class="slogan-title">"온화한 날씨 속에서 다양한 농업과 인간 활동이 활발한 곳"</p>
@@ -1275,12 +1459,12 @@
                 </li>
               </ul>
             </div>
-            <div class="card-block">
+                        <div class="card-block">
               <h2 class="block-title">🏡 주민 생활 모습</h2>
               <ul class="features-list">
                 <li>
-                  <span class="feature-tag">농업 및 산업</span>
-                  <span class="feature-detail">배수가 매우 빨라 논농사 대신 <span class="blank" data-answer="밭농사">밭농사</span>를 주로 지으며, 시멘트 핵심 원료인 <span class="blank" data-answer="석회암">석회암</span> 광업 및 동굴 관광 발달.</span>
+                  <span class="feature-tag">농업 및 광업</span>
+                  <span class="feature-detail">물이 지하로 쉽게 빠져나가 논농사보다 <span class="blank" data-answer="밭농사">밭농사</span>를 지으며, 시멘트의 핵심 원료인 <span class="blank" data-answer="석회암">석회암</span>을 캐는 광공업 및 동굴 관광이 활발함.</span>
                 </li>
               </ul>
               <!-- 단어 바구니 -->
@@ -1296,14 +1480,15 @@
       <!-- ================= 09. 화산 지형 ================= -->
       <section class="climate-section" id="sec-special-volcano">
         <div class="section-slogan">
-          <p class="slogan-title">"마그마의 분출이 빚어낸 경이로운 대지, 화산과 온천을 활용하는 곳"</p>
+          <p class="slogan-title">"지구 내부의 마그마나 용암이 만들어낸 경이로운 화산 경관과 주민 생활"</p>
         </div>
         <div class="section-columns">
           <!-- 1열: 지형 특징 사진 -->
           <div class="graphs-card">
             <div class="card-item">
-              <img src="images/volcano_terrain.png" alt="화산 분화구">
-              <p class="card-item-title">🌋 마그마 분출로 형성된 분화구와 화산체 (다이아몬드 헤드)</p>
+              <img src="images/volcano_terrain.png" alt="화산 지형">
+              <p class="card-item-title">🌋 분출구와 화산체 (다이아몬드 헤드)</p>
+
             </div>
             <div class="card-item">
               <img src="images/volcano_characteristic.png" alt="온천과 온천욕">
@@ -1435,6 +1620,31 @@
     // 1. 기후 그래프 데이터 세트 및 SVG 렌더링 함수
     // ----------------------------------------------------
     const chartData = {
+      'af': { 
+        title: '열대 우림 기후 (Rainforest - Af)', 
+        temps: [26.5, 26.8, 27.0, 27.2, 27.5, 27.3, 27.0, 26.9, 27.0, 27.2, 26.8, 26.5], 
+        precips: [240, 190, 220, 180, 170, 140, 150, 160, 170, 190, 250, 270] 
+      },
+      'am': { 
+        title: '열대 몬순 기후 (Monsoon - Am)', 
+        temps: [25.5, 26.5, 28.5, 30.0, 30.0, 29.0, 27.5, 27.5, 28.0, 28.5, 27.0, 26.0], 
+        precips: [5, 8, 15, 35, 200, 530, 620, 540, 310, 120, 30, 8] 
+      },
+      'aw': { 
+        title: '사바나 기후 (Savanna - Aw)', 
+        temps: [25.0, 26.0, 28.0, 29.5, 28.5, 27.0, 26.0, 26.0, 27.0, 27.5, 26.5, 25.0], 
+        precips: [5, 8, 25, 80, 150, 180, 170, 190, 220, 140, 40, 8] 
+      },
+      'bw': { 
+        title: '사막 기후 (Desert - BW)', 
+        temps: [12.0, 15.0, 20.0, 25.0, 30.0, 34.0, 36.0, 35.0, 31.0, 25.0, 18.0, 13.0], 
+        precips: [5, 5, 8, 3, 2, 0, 0, 0, 1, 2, 5, 8] 
+      },
+      'bs': { 
+        title: '스텝 기후 (Steppe - BS)', 
+        temps: [5.0, 8.0, 14.0, 20.0, 25.0, 29.0, 30.0, 28.0, 24.0, 17.0, 10.0, 6.0], 
+        precips: [15, 18, 25, 30, 45, 60, 80, 70, 40, 25, 20, 15] 
+      },
       'cs': { 
         title: '지중해성 기후 (Mediterranean - Cs)', 
         temps: [9.0, 9.5, 11.5, 14.0, 18.5, 22.5, 25.5, 25.5, 21.5, 17.5, 13.0, 9.5], 
@@ -1513,7 +1723,9 @@
       
       // 강수량 스케일 설정
       const maxDataP = Math.max(...precips);
-      const maxP = maxDataP > 200 ? 400 : 200;
+      let maxP = 200;
+      if (maxDataP > 500) maxP = 800;
+      else if (maxDataP > 200) maxP = 400;
       
       // 격자 및 좌우축 수치
       let gridLines = '';
