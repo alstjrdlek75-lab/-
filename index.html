@@ -680,6 +680,259 @@
       color: #868e96;
       font-weight: 600;
     }
+
+    /* 기후도감 전용 스타일 */
+    .encyclopedia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .encyclopedia-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 26px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .encyclopedia-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+    }
+
+    .encyclopedia-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .encyclopedia-title {
+      font-size: 1.4rem;
+      font-weight: 850;
+      color: var(--accent);
+    }
+
+    .encyclopedia-city {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #343a40;
+    }
+
+    .encyclopedia-desc {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #495057;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    /* 쾨펜 자가진단 시뮬레이터 */
+    .simulator-container {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .simulator-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .simulator-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 28px;
+      padding: 2.2rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      min-height: 440px;
+      justify-content: space-between;
+    }
+
+    .sim-header {
+      border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+      padding-bottom: 0.8rem;
+    }
+
+    .sim-header h2 {
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #1a1a1a;
+    }
+
+    .sim-question-box {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #212529;
+      line-height: 1.5;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      word-break: keep-all;
+    }
+
+    .sim-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .sim-btn {
+      border: 2px solid #dee2e6;
+      background: #ffffff;
+      padding: 1rem 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 800;
+      border-radius: 16px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+      color: #495057;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sim-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .sim-btn.correct {
+      border-color: #2b8a3e !important;
+      background: #ebfbee !important;
+      color: #2b8a3e !important;
+    }
+
+    .sim-btn.wrong {
+      border-color: #e03131 !important;
+      background: #fff5f5 !important;
+      color: #e03131 !important;
+      pointer-events: none;
+    }
+
+    .sim-result-card {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 2rem;
+      border-radius: 24px;
+      text-align: center;
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px var(--accent-shadow);
+      transition: background var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    }
+
+    .sim-result-card.active {
+      display: flex;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.9); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .sim-result-code {
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .sim-result-name {
+      font-size: 1.8rem;
+      font-weight: 850;
+    }
+
+    .sim-result-desc {
+      font-size: 1.15rem;
+      font-weight: 600;
+      opacity: 0.9;
+      line-height: 1.6;
+      word-break: keep-all;
+    }
+
+    .sim-restart-btn {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 800;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      align-self: center;
+    }
+
+    .sim-restart-btn:hover {
+      background: #ffffff;
+      color: var(--accent);
+    }
+
+    /* 쾨펜 구조 도표 카드 */
+    .koppen-tree-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 28px;
+      padding: 1.8rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      height: 100%;
+    }
+
+    .tree-title {
+      font-size: 1.45rem;
+      font-weight: 850;
+      color: #212529;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+      padding-bottom: 0.6rem;
+    }
+
+    .tree-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    .tree-item-title {
+      font-size: 1.2rem;
+      font-weight: 850;
+      color: #212529;
+    }
+
+    .tree-item-detail {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #495057;
+      line-height: 1.5;
+    }
+
+
   </style>
 </head>
 <body class="theme-temperate">
@@ -696,6 +949,7 @@
       <div class="topic-tabs">
         <button class="topic-btn active" data-topic="climate">기후대별 주민 생활</button>
         <button class="topic-btn" data-topic="landform">지형 조건과 주민 생활</button>
+        <button class="topic-btn" data-topic="encyclopedia">📖 쾨펜 기후도감</button>
       </div>
 
       <div class="control-row">
@@ -717,6 +971,17 @@
           <button class="tab-btn" data-landform="karst">🕳️ 카르스트 지형</button>
           <button class="tab-btn" data-landform="volcano">🌋 화산 지형</button>
           <button class="tab-btn" data-landform="glacier">❄️ 빙하 지형</button>
+        </div>
+
+        <!-- 2차 기후도감 서브탭 -->
+        <div class="subtabs" id="encyclopedia-subtabs" style="display: none;">
+          <button class="tab-btn active" data-encyclopedia="guide">📊 쾨펜 분류 가이드</button>
+          <button class="tab-btn" data-encyclopedia="tropical">🌴 열대 기후(A)</button>
+          <button class="tab-btn" data-encyclopedia="dry">🐪 건조 기후(B)</button>
+          <button class="tab-btn" data-encyclopedia="temperate">☀️ 온대 기후(C)</button>
+          <button class="tab-btn" data-encyclopedia="subarctic">🌲 냉대 기후(D)</button>
+          <button class="tab-btn" data-encyclopedia="polar">❄️ 한대 기후(E)</button>
+          <button class="tab-btn" data-encyclopedia="highland">🏔️ 고산 기후(H)</button>
         </div>
 
         <!-- 우측 퀴즈 제어부 -->
@@ -1608,14 +1873,321 @@
         </div>
       </section>
 
-    </div>
-  </div>
+      <!-- ================= 11. 기후도감: 쾨펜 분류 가이드 ================= -->
+      <!-- ================= 11. 기후도감: 퀴즈 게임 ================= -->
+      <section class="climate-section" id="sec-encyclopedia-guide">
+        <div class="section-slogan">
+          <p class="slogan-title">"기후 그래프를 분석해 기후대를 맞추고, 그 기후대의 주민 생활(의·식·주) 퀴즈에 도전해보세요!"</p>
+        </div>
+        <div class="simulator-container">
+          <!-- 좌측: 기후 & 의식주 퀴즈 카드 -->
+          <div class="simulator-card" id="koppenQuizCard">
+            <!-- 시작 커버 화면 -->
+            <div id="quizStartCover" style="display: flex; flex-direction: column; gap: 1.5rem; justify-content: center; height: 100%; text-align: center; align-items: center; padding: 2rem;">
+              <h2 style="font-size: 2.2rem; font-weight: 900; color: #1a1a1a;">🎮 기후 & 의식주 매칭 퀴즈 게임</h2>
+              <p style="font-size: 1.25rem; color: #495057; font-weight: 600; line-height: 1.6; max-width: 500px; word-break: keep-all;">
+                총 5개의 랜덤 쾨펜 기후 그래프가 제시됩니다.<br>
+                1단계로 그래프를 보고 기후를 맞추고,<br>
+                2단계로 그 기후대의 전통 생활상 퀴즈를 풀어보세요!
+              </p>
+              <button class="sim-btn" onclick="startQuiz()" style="font-size: 1.35rem; padding: 1.2rem 2.5rem; border-radius: 20px; align-self: center; justify-content: center; background: var(--accent); color: #ffffff; border: none; font-weight: 900; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+                🚀 게임 시작하기 
+              </button>
+            </div>
 
-  <footer>
-    <p>© 2026 통합사회 지리 지형 및 기후대별 주민생활 대시보드. All Rights Reserved.</p>
-  </footer>
+            <!-- 플레이 화면 (기본 숨김) -->
+            <div id="quizPlayScreen" style="display: none; flex-direction: column; gap: 1rem; height: 100%; justify-content: space-between;">
+              <div class="sim-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(0,0,0,0.05); padding-bottom: 0.6rem;">
+                <h2 id="quizStageTitle" style="font-size: 1.6rem; font-weight: 900;">1단계: 기후 맞추기</h2>
+                <div class="quiz-progress" id="quizProgress" style="font-size: 1.2rem; font-weight: 800; color: #868e96; background: rgba(0,0,0,0.05); padding: 0.3rem 0.8rem; border-radius: 10px;">문제 1 / 5</div>
+              </div>
+              
+              <div class="quiz-content-box" style="display: flex; flex-direction: column; gap: 1rem;">
+                <!-- 기후 그래프 컨테이너 -->
+                <div class="quiz-chart-wrapper" id="quizChartWrapper" style="max-width: 440px; margin: 0 auto; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.06);">
+                  <div class="chart-container" id="quizChartContainer" data-chart="af"></div>
+                </div>
+                
+                <!-- 질문 -->
+                <div class="sim-question-box" id="quizQuestion" style="font-size: 1.3rem; font-weight: 800; color: #212529; min-height: 70px; display: flex; align-items: center; line-height: 1.5; word-break: keep-all; margin-top: 0.5rem;">
+                  이 기후 그래프는 어떤 기후대일까요?
+                </div>
+                
+                <!-- 선택지 -->
+                <div class="sim-options" id="quizOptions" style="display: flex; flex-direction: column; gap: 0.7rem;">
+                  <!-- 버튼 동적 추가 -->
+                </div>
+              </div>
+            </div>
 
-  <script>
+            <!-- 결과 피드백 화면 (기본 숨김) -->
+            <div class="sim-result-card" id="quizFeedback">
+              <div class="sim-result-code" id="feedbackResult">⭕ 정답입니다!</div>
+              <div class="sim-result-name" id="feedbackTitle">서안 해양성 기후</div>
+              <div class="sim-result-desc" id="feedbackDesc">올리브, 오렌지 등을 재배하는 수목 농업이 발달합니다.</div>
+              <button class="sim-restart-btn" id="nextQuizBtn" onclick="nextQuizStep()" style="font-size: 1.2rem; padding: 0.8rem 2rem; border-radius: 14px; margin-top: 1rem;">다음 단계로 ➡️</button>
+            </div>
+
+            <!-- 최종 스코어 화면 (기본 숨김) -->
+            <div id="quizScoreScreen" style="display: none; flex-direction: column; gap: 1.5rem; justify-content: center; height: 100%; text-align: center; align-items: center; padding: 2rem;">
+              <div style="font-size: 5rem;">🏆</div>
+              <h2 style="font-size: 2.2rem; font-weight: 900; color: #1a1a1a;">퀴즈 게임 완료!</h2>
+              <div style="background: rgba(0, 0, 0, 0.04); padding: 1.5rem 3rem; border-radius: 24px; border: 1px solid rgba(0,0,0,0.05); margin: 0.5rem 0;">
+                <p style="font-size: 1.2rem; color: #495057; font-weight: 700; margin-bottom: 0.5rem;">최종 점수</p>
+                <p style="font-size: 3.5rem; font-weight: 900; color: var(--accent);" id="finalScoreText">10점 / 10점</p>
+              </div>
+              <p style="font-size: 1.35rem; color: #343a40; font-weight: 800; line-height: 1.5; max-width: 500px; word-break: keep-all;" id="finalScoreComment">
+                대단합니다! 통합사회 지리 마스터 등극! 👑
+              </p>
+              <button class="sim-restart-btn" onclick="resetQuizGame()" style="font-size: 1.25rem; padding: 1rem 2.2rem; border-radius: 16px; margin-top: 1rem; background: var(--accent); border: none; font-weight: 900;">
+                🔄 다시 도전하기
+              </button>
+            </div>
+          </div>
+
+          <!-- 우측: 기후 그래프 판정 매커니즘 및 요약 -->
+          <div class="koppen-tree-card" style="display: flex; flex-direction: column; gap: 1.5rem; max-height: 800px; overflow-y: auto;">
+            <h2 class="tree-title">📊 그래프로 기후 판정하기</h2>
+            
+            <div style="background: rgba(28, 126, 214, 0.06); border-radius: 20px; border: 1.5px dashed rgba(28, 126, 214, 0.3); padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem;">
+              <p style="font-weight: 800; font-size: 1.15rem; color: #1c7ed6; display: flex; align-items: center; gap: 0.4rem; margin: 0;">
+                💡 그래프 판별 순서 (위에서 아래로 순차 진행!)
+              </p>
+              
+              <div class="tree-item" style="border-left: 4px solid #f59f00; background: #ffffff; padding: 0.8rem 1rem; border-radius: 12px; border-top: 1px solid rgba(0,0,0,0.03); border-right: 1px solid rgba(0,0,0,0.03); border-bottom: 1px solid rgba(0,0,0,0.03);">
+                <p class="tree-item-title" style="font-size: 1.1rem; color: #f59f00; margin: 0 0 0.2rem 0; font-weight: 850;">1단계: 강수량 막대 확인 ➡️ 건조 기후(B)</p>
+                <p class="tree-item-detail" style="font-size: 0.95rem; line-height: 1.4; margin: 0; font-weight: 600;">
+                  연 강수량 막대의 전체 합이 <strong>500mm 미만</strong>(막대기가 거의 바닥에 붙어 있음)이면 👉 🐪 <strong>건조 기후(B)</strong>
+                </p>
+              </div>
+
+              <div class="tree-item" style="border-left: 4px solid #74c0fc; background: #ffffff; padding: 0.8rem 1rem; border-radius: 12px; border-top: 1px solid rgba(0,0,0,0.03); border-right: 1px solid rgba(0,0,0,0.03); border-bottom: 1px solid rgba(0,0,0,0.03);">
+                <p class="tree-item-title" style="font-size: 1.1rem; color: #1c7ed6; margin: 0 0 0.2rem 0; font-weight: 850;">2단계: 최난월(가장 따뜻한 달) 기온 확인 ➡️ 한대 기후(E)</p>
+                <p class="tree-item-detail" style="font-size: 0.95rem; line-height: 1.4; margin: 0; font-weight: 600;">
+                  기온 꺾은선그래프의 가장 높은 지점(최난월)이 <strong>10℃ 미만</strong>이면 👉 ❄️ <strong>한대 기후(E)</strong>
+                </p>
+              </div>
+
+              <div class="tree-item" style="border-left: 4px solid #e8590c; background: #ffffff; padding: 0.8rem 1rem; border-radius: 12px; border-top: 1px solid rgba(0,0,0,0.03); border-right: 1px solid rgba(0,0,0,0.03); border-bottom: 1px solid rgba(0,0,0,0.03);">
+                <p class="tree-item-title" style="font-size: 1.1rem; color: #e8590c; margin: 0 0 0.2rem 0; font-weight: 850;">3단계: 최한월(가장 추운 달) 기온 확인 ➡️ A, C, D 기후</p>
+                <p class="tree-item-detail" style="font-size: 0.95rem; line-height: 1.4; display: flex; flex-direction: column; gap: 0.3rem; margin: 0; font-weight: 600;">
+                  <span>최한월 기온이 <strong>18℃ 이상</strong> 👉 🌴 <strong>열대 기후(A)</strong> (기온선이 일년 내내 높고 평평함)</span>
+                  <span>최한월 기온이 <strong>-3℃ ~ 18℃ 사이</strong> 👉 ☀️ <strong>온대 기후(C)</strong> (겨울철 기온선이 비교적 완만함)</span>
+                  <span>최한월 기온이 <strong>-3℃ 미만</strong> 👉 🌲 <strong>냉대 기후(D)</strong> (겨울철 기온선이 영하로 깊게 하강함)</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- 기후 기준표 요약 (기존 내용 축소) -->
+            <h2 class="tree-title" style="margin-top: 0.5rem; margin-bottom: 0;">📋 쾨펜 기후 기준 요약</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+              <div class="tree-item" style="margin: 0; padding: 0.8rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
+                <p class="tree-item-title" style="font-size: 1rem; margin: 0 0 0.15rem 0; font-weight: 850;">🌴 열대 기후 (A)</p>
+                <p class="tree-item-detail" style="font-size: 0.85rem; margin: 0; font-weight: 600;">최한월 기온 ≥ 18℃</p>
+              </div>
+              <div class="tree-item" style="margin: 0; padding: 0.8rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
+                <p class="tree-item-title" style="font-size: 1rem; margin: 0 0 0.15rem 0; font-weight: 850;">🐪 건조 기후 (B)</p>
+                <p class="tree-item-detail" style="font-size: 0.85rem; margin: 0; font-weight: 600;">연 강수량 &lt; 500mm</p>
+              </div>
+              <div class="tree-item" style="margin: 0; padding: 0.8rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
+                <p class="tree-item-title" style="font-size: 1rem; margin: 0 0 0.15rem 0; font-weight: 850;">☀️ 온대 기후 (C)</p>
+                <p class="tree-item-detail" style="font-size: 0.85rem; margin: 0; font-weight: 600;">최한월 기온 -3℃ ~ 18℃</p>
+              </div>
+              <div class="tree-item" style="margin: 0; padding: 0.8rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03);">
+                <p class="tree-item-title" style="font-size: 1rem; margin: 0 0 0.15rem 0; font-weight: 850;">🌲 냉대 기후 (D)</p>
+                <p class="tree-item-detail" style="font-size: 0.85rem; margin: 0; font-weight: 600;">최한월 &lt; -3℃, 최난월 ≥ 10℃</p>
+              </div>
+              <div class="tree-item" style="margin: 0; padding: 0.8rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.03); grid-column: span 2;">
+                <p class="tree-item-title" style="font-size: 1rem; margin: 0 0 0.15rem 0; font-weight: 850;">❄️ 한대 기후 (E)</p>
+                <p class="tree-item-detail" style="font-size: 0.85rem; margin: 0; font-weight: 600;">최난월 기온 &lt; 10℃ (나무 무성 성장 불가능)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 열대 기후 (A) 도감 -->
+      <section class="climate-section" id="sec-encyclopedia-tropical">
+        <div class="section-slogan">
+          <p class="slogan-title">"적도 주변의 연중 무덥고 비가 많이 내리는 열대 기후대"</p>
+        </div>
+        <div class="encyclopedia-grid">
+          <!-- Af -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="af"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🌴 열대 우림 기후 (Af)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 싱가포르</p>
+              <p class="encyclopedia-desc">가장 추운 달 평균 기온이 18℃ 이상이고, 가장 적은 달(최소우월) 강수량이 60mm 이상인 기후입니다. 연중 무덥고 비가 많이 내리며, 밀림(열대 우림)이 빽빽하게 자랍니다.</p>
+            </div>
+          </div>
+          <!-- Am -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="am"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🌦️ 열대 몬순 기후 (Am)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 마이애미 (미국)</p>
+              <p class="encyclopedia-desc">계절풍(몬순)의 영향으로 뚜렷한 우기와 짧은 건기가 나타나는 기후입니다. 우기에는 매우 많은 비가 내려 정글과 계절풍림이 발달합니다.</p>
+            </div>
+          </div>
+          <!-- Aw -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="aw"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🦁 사바나 기후 (Aw)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 다르에스살람 (탄자니아)</p>
+              <p class="encyclopedia-desc">우기와 건기가 매우 뚜렷하게 교차하는 기후입니다. 나무가 드문드문 있고 긴 풀이 자라는 초원(사바나)이 넓게 펼쳐져 야생 동물의 낙원을 이룹니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 건조 기후 (B) 도감 -->
+      <section class="climate-section" id="sec-encyclopedia-dry">
+        <div class="section-slogan">
+          <p class="slogan-title">"강수량보다 증발량이 많아 물이 부족하고 메마른 건조 기후대"</p>
+        </div>
+        <div class="encyclopedia-grid">
+          <!-- BW -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="bw"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🐪 사막 기후 (BW)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 카이로 (이집트)</p>
+              <p class="encyclopedia-desc">연 강수량이 250mm 미만인 매우 메마른 기후입니다. 식물이 자라기 힘들며 넓은 모래나 자갈 사막이 분포합니다.</p>
+            </div>
+          </div>
+          <!-- BS -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="bs"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🌾 스텝 기후 (BS)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 브룸 (호주)</p>
+              <p class="encyclopedia-desc">연 강수량이 250~500mm 사이로, 봄철 짧은 우기 동안 자라는 짧은 초원(스텝)이 발달합니다. 대규모 목축이 주로 행해집니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 온대 기후 (C) 도감 -->
+      <section class="climate-section" id="sec-encyclopedia-temperate">
+        <div class="section-slogan">
+          <p class="slogan-title">"사계절 변화가 뚜렷하고 온화하여 많은 인구가 거주하는 온대 기후대"</p>
+        </div>
+        <div class="encyclopedia-grid">
+          <!-- Cw -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="cw"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🍚 온대 겨울 건조 기후 (Cw)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 칭다오 (중국)</p>
+              <p class="encyclopedia-desc">가장 추운 달 평균 기온이 -3~18℃ 사이이며, 여름은 고온 다우하고 겨울은 한랭 건조합니다. 여름에 비가 집중되어 벼농사가 매우 활발하게 행해집니다.</p>
+            </div>
+          </div>
+          <!-- Cs -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="cs"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🍇 지중해성 기후 (Cs)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 리스본 (포르투갈)</p>
+              <p class="encyclopedia-desc">여름철에는 아열대 고압대의 영향으로 고온 건조하고 겨울철에는 온화하며 다우합니다. 여름철 건조함을 극복하기 위해 올리브, 포도 등 수목 농업이 발달했습니다.</p>
+            </div>
+          </div>
+          <!-- Cfb -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="cfb"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🐄 서안 해양성 기후 (Cfb)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 런던 (영국)</p>
+              <p class="encyclopedia-desc">연중 강수량이 고르고 기온 변화가 온화합니다. 여름철이 서늘하여 혼합 농업 및 낙농업이 널리 활성화되어 있습니다.</p>
+            </div>
+          </div>
+          <!-- Cfa -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="cfa"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🏙️ 온난 습윤 기후 (Cfa)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 뉴욕 (미국)</p>
+              <p class="encyclopedia-desc">사계절이 뚜렷하며, 여름은 매우 고온 다습하고 겨울은 비교적 온화합니다. 강수가 연중 고르게 내려 농업과 산업 발달에 유리합니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 냉대 기후 (D) 도감 -->
+      <section class="climate-section" id="sec-encyclopedia-subarctic">
+        <div class="section-slogan">
+          <p class="slogan-title">"넓게 펼쳐진 침엽수림 타이가와 길고 혹독한 겨울의 냉대 기후대"</p>
+        </div>
+        <div class="encyclopedia-grid">
+          <!-- Df -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="df"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🌲 냉대 습윤 기후 (Df)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 모스크바 (러시아)</p>
+              <p class="encyclopedia-desc">가장 추운 달 평균 기온이 -3℃ 미만이고 연중 고른 강수량을 나타냅니다. 혹독하고 긴 겨울을 견디기 위해 가문비나무, 소나무 등 침엽수림(타이가) 지대가 넓게 발달해 있습니다.</p>
+            </div>
+          </div>
+          <!-- Dw -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="dw"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🥶 냉대 겨울 건조 기후 (Dw)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 블라디보스토크 (러시아)</p>
+              <p class="encyclopedia-desc">겨울철 대륙성 고기압의 영향으로 몹시 춥고 건조하며, 여름철에는 비교적 온난하고 다우합니다. 연교차가 매우 크게 나타나는 특징을 지닙니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 한대·고산 기후 (E/H) 도감 -->
+      <!-- 한대 기후 (E) 도감 -->
+      <section class="climate-section" id="sec-encyclopedia-polar">
+        <div class="section-slogan">
+          <p class="slogan-title">"가장 따뜻한 달의 평균 기온이 10℃ 미만으로, 얼어붙은 눈과 얼음으로 덮인 한대 기후대"</p>
+        </div>
+        <div class="encyclopedia-grid">
+          <!-- ET -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="et"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🦌 툰드라 기후 (ET)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 배로 (미국 알래스카)</p>
+              <p class="encyclopedia-desc">가장 따뜻한 달 평균 기온이 0~10℃ 사이입니다. 여름에 잠깐 지표면의 눈이 녹아 활동층이 드러나며, 이끼와 지의류가 자라나 순록 유목이 행해집니다.</p>
+            </div>
+          </div>
+          <!-- EF -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="ef"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🐧 빙설 기후 (EF)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 보스토크 (남극 대륙)</p>
+              <p class="encyclopedia-desc">연중 평균 기온이 0℃ 미만으로 얼음과 눈으로 완전히 덮인 지대입니다. 식물이 전혀 자랄 수 없어 인간 거주가 거의 불가능합니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 고산 기후 (H) 도감 -->
+      <section class="climate-section" id="sec-encyclopedia-highland">
+        <div class="section-slogan">
+          <p class="slogan-title">"위도가 낮아도 고도가 높아 연중 온화한 봄 날씨가 펼쳐지는 상춘 기후대"</p>
+        </div>
+        <div class="encyclopedia-grid">
+          <!-- H -->
+          <div class="encyclopedia-card">
+            <div class="chart-container" data-chart="h"></div>
+            <div class="encyclopedia-info">
+              <h3 class="encyclopedia-title">🏔️ 고산 기후 (H)</h3>
+              <p class="encyclopedia-city">📍 대표 도시: 보고타 (콜롬비아)</p>
+              <p class="encyclopedia-desc">해발고도가 매우 높은 산지나 고원 지대에서 나타납니다. 위도가 낮아도 높은 고도 덕분에 연중 봄과 같이 온화한 날씨가 지속되는 상춘 기후(常春)가 특징입니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       <script>
     // ----------------------------------------------------
     // 1. 기후 그래프 데이터 세트 및 SVG 렌더링 함수
     // ----------------------------------------------------
@@ -1645,6 +2217,11 @@
         temps: [5.0, 8.0, 14.0, 20.0, 25.0, 29.0, 30.0, 28.0, 24.0, 17.0, 10.0, 6.0], 
         precips: [15, 18, 25, 30, 45, 60, 80, 70, 40, 25, 20, 15] 
       },
+      'cw': { 
+        title: '온대 겨울 건조 기후 (Monsoon - Cw)', 
+        temps: [-1.0, 1.5, 7.5, 14.5, 20.0, 24.0, 26.5, 26.0, 21.5, 15.5, 8.5, 1.5], 
+        precips: [8, 12, 20, 35, 60, 100, 250, 180, 80, 30, 15, 8] 
+      },
       'cs': { 
         title: '지중해성 기후 (Mediterranean - Cs)', 
         temps: [9.0, 9.5, 11.5, 14.0, 18.5, 22.5, 25.5, 25.5, 21.5, 17.5, 13.0, 9.5], 
@@ -1656,9 +2233,9 @@
         precips: [55, 45, 40, 45, 45, 45, 50, 55, 50, 65, 65, 60] 
       },
       'cfa': { 
-        title: '온대 계절풍 기후 (Monsoon - Cfa)', 
-        temps: [-2.5, 0.0, 5.5, 12.5, 18.0, 22.5, 25.5, 26.0, 21.0, 14.5, 7.0, 0.0], 
-        precips: [20, 25, 45, 75, 100, 130, 290, 270, 140, 50, 50, 20] 
+        title: '온난 습윤 기후 (Humid Subtropical - Cfa)', 
+        temps: [0.5, 2.0, 6.0, 12.5, 18.0, 22.5, 25.5, 26.0, 21.0, 14.5, 8.5, 3.5], 
+        precips: [85, 80, 95, 90, 105, 115, 110, 95, 90, 85, 90, 85] 
       },
       'df': { 
         title: '냉대 습윤 기후 (Df)', 
@@ -1681,7 +2258,7 @@
         precips: [5, 5, 4, 3, 3, 2, 2, 3, 4, 5, 5, 5] 
       },
       'h': { 
-        title: '고산 기후 (H - 키토)', 
+        title: '고산 기후 (H - 보고타)', 
         temps: [13.5, 13.5, 13.7, 13.7, 13.7, 13.8, 13.9, 13.9, 13.9, 13.7, 13.6, 13.5], 
         precips: [110, 125, 150, 175, 125, 45, 20, 30, 75, 110, 100, 105] 
       }
@@ -1704,7 +2281,7 @@
       const temps = isSouth ? [...data.temps.slice(6), ...data.temps.slice(0, 6)] : data.temps;
       const precips = isSouth ? [...data.precips.slice(6), ...data.precips.slice(0, 6)] : data.precips;
       
-      // 기온 스케일 자동 설정 (빙설 기후 등 고려)
+      // 기온 스케일 자동 설정
       let minT = -20;
       let maxT = 40;
       const minDataT = Math.min(...temps);
@@ -1715,7 +2292,6 @@
         minT = -30;
         maxT = 30;
       } else if (Math.max(...temps) < 18) {
-        // 고산 기후 등 좁은 연교차
         minT = 0;
         maxT = 20;
       }
@@ -1776,29 +2352,14 @@
       
       const svg = `
         <svg viewBox="0 0 ${width} ${height}" style="width: 100%; height: auto; display: block; background: #ffffff; border-radius: 16px;">
-          <!-- 격자선 및 눈금 -->
           ${gridLines}
-          
-          <!-- 강수량 막대 -->
           ${bars}
-          
-          <!-- 기온 선 -->
           <path d="${linePath}" fill="none" stroke="#e8590c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-          
-          <!-- 기온 마커 -->
           ${points}
-          
-          <!-- 축 제목 -->
           <text x="${padding.left}" y="15" fill="#868e96" font-size="8" font-weight="700" text-anchor="middle">기온(°C)</text>
           <text x="${width - padding.right}" y="15" fill="#868e96" font-size="8" font-weight="700" text-anchor="middle">강수(mm)</text>
-          
-          <!-- 남반구/북반구 표식 -->
           <text x="180" y="15" fill="${isSouth ? '#c2255c' : '#1c7ed6'}" font-size="9.5" font-weight="800" text-anchor="middle">${isSouth ? '남반구 기후 (클릭시 전환)' : '북반구 기후 (클릭시 전환)'}</text>
-          
-          <!-- 월 표식 -->
           ${monthLabels}
-          
-          <!-- 테두리 -->
           <line x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${height - padding.bottom}" stroke="#dee2e6" stroke-width="1.5" />
           <line x1="${width - padding.right}" y1="${padding.top}" x2="${width - padding.right}" y2="${height - padding.bottom}" stroke="#dee2e6" stroke-width="1.5" />
           <line x1="${padding.left}" y1="${height - padding.bottom}" x2="${width - padding.right}" y2="${height - padding.bottom}" stroke="#dee2e6" stroke-width="1.5" />
@@ -1811,6 +2372,779 @@
     // ----------------------------------------------------
     // 2. DOM 요소 선택 및 상태 변수
     // ----------------------------------------------------
+    const topicButtons = document.querySelectorAll('.topic-btn');
+    const climateSubtabs = document.getElementById('climate-subtabs');
+    const landformSubtabs = document.getElementById('landform-subtabs');
+    const encyclopediaSubtabs = document.getElementById('encyclopedia-subtabs');
+    const climateTabButtons = climateSubtabs.querySelectorAll('.tab-btn');
+    const landformTabButtons = landformSubtabs.querySelectorAll('.tab-btn');
+    const encyclopediaTabButtons = encyclopediaSubtabs.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('.climate-section');
+    const quizToggle = document.getElementById('quizToggle');
+    const resetBtn = document.getElementById('resetBtn');
+    const settingsGroup = document.querySelector('.settings-group');
+    const body = document.body;
+
+    let activeTopic = 'climate';
+    let activeClimate = 'temperate';
+    let activeLandform = 'mountain';
+    let activeEncyclopedia = 'guide';
+    let selectedChip = null;
+
+    // ----------------------------------------------------
+    // 3. 쾨펜 기후 자가진단 시뮬레이터 상태 머신
+    // ----------------------------------------------------
+    // ----------------------------------------------------
+    // 3. 기후 & 의식주 매칭 퀴즈 데이터베이스 및 로직
+    // ----------------------------------------------------
+    const quizDatabase = {
+      'af': {
+        name: '열대 우림 기후 (Af)',
+        question: '열대 우림 기후대(Af)에서 주민들이 전통적으로 주변에서 구하기 쉬운 재료로 고상 가옥을 짓고 사는 가장 큰 이유는 무엇일까요?',
+        options: [
+          '연중 덥고 습한 열기와 지면의 습기, 해충을 피하기 위해',
+          '겨울철 눈이 많이 쌓여 지붕이 붕괴되는 것을 막기 위해',
+          '여름철 모래바람을 막고 밤의 추위를 견디기 위해',
+          '영구동토층이 녹아 땅이 뒤틀리는 것을 막기 위해'
+        ],
+        answerIdx: 0,
+        desc: '열대 우림 기후는 연중 고온 다우하므로, 지면의 열기와 습기, 해충을 막기 위해 바닥을 띄운 고상 가옥이 발달했습니다.'
+      },
+      'am': {
+        name: '열대 몬순 기후 (Am)',
+        question: '열대 몬순 기후대(Am)에서 뚜렷한 우기 동안 벼농사가 매우 활발하게 이루어지는 배경으로 가장 적절한 것은?',
+        options: [
+          '여름철 계절풍의 영향으로 매우 풍부한 강수량이 집중되기 때문에',
+          '연중 강수가 고르고 기온 변화가 온화하여 2기작이 가능하기 때문에',
+          '겨울철 한랭 건조한 기후가 벼의 생장에 유리하기 때문에',
+          '지중해 주변의 습윤한 기후와 수목 농업 기법이 도입되었기 때문에'
+        ],
+        answerIdx: 0,
+        desc: '열대 몬순 기후는 계절풍의 영향으로 우기에 비가 집중되어 벼농사가 매우 유리합니다.'
+      },
+      'aw': {
+        name: '사바나 기후 (Aw)',
+        question: '사바나 기후대(Aw)에서 건기와 우기의 주기에 맞추어 주민들이 전통적으로 행하는 생활 양식으로 옳은 것은?',
+        options: [
+          '물과 풀밭을 찾아 가축을 몰고 이동하는 유목 및 방목',
+          '단단한 통나무집을 짓고 평생 정착하며 임업 활동',
+          '여름철 고온 건조함을 버티기 위해 흰색 올리브 숲 가꾸기',
+          '영구동토층 위에 고상 가옥을 짓고 순록 사육'
+        ],
+        answerIdx: 0,
+        desc: '사바나 기후는 건기와 우기가 뚜렷하여 주민들은 물과 풀을 찾아 이동하는 방목이나 유목 생활을 많이 합니다.'
+      },
+      'bw': {
+        name: '사막 기후 (BW)',
+        question: '사막 기후대(BW) 주민들이 온몸을 감싸는 헐렁한 긴 옷을 입고, 흙으로 두꺼운 벽과 작은 창문을 가진 집을 짓는 주된 이유는?',
+        options: [
+          '강한 햇빛과 모래바람을 막고 내부 열기를 차단하기 위해',
+          '겨울철 긴 혹한과 폭설로부터 체온을 유지하기 위해',
+          '여름철 다습한 공기로부터 땀을 빠르게 배출하기 위해',
+          '이끼와 순록 유목을 위해 사냥하기 편리하게 하기 위해'
+        ],
+        answerIdx: 0,
+        desc: '사막 기후는 강한 햇빛과 모래바람이 불기 때문에, 헐렁한 옷으로 몸을 감싸고 두꺼운 진흙벽으로 열기를 막습니다.'
+      },
+      'bs': {
+        name: '스텝 기후 (BS)',
+        question: '스텝 기후대(BS)에서 발달한 전통 가옥 형태로, 이동식 생활에 적합하도록 조립과 해체가 쉬운 텐트형 가옥은 무엇인가요?',
+        options: [
+          '게르 (또는 유르트)',
+          '고상 가옥',
+          '통나무집',
+          '빙설 집 (이글루)'
+        ],
+        answerIdx: 0,
+        desc: '스텝 기후는 넓은 초원에서 가축을 몰고 이동해야 하므로, 해체와 조립이 쉬운 이동식 가옥(게르 등)이 발달했습니다.'
+      },
+      'cw': {
+        name: '온대 겨울 건조 기후 (Cw)',
+        question: '온대 겨울 건조 기후대(Cw)에서 주로 여름철 기후적 특성을 이용하여 많이 짓는 핵심 식량 작물은 무엇일까요?',
+        options: [
+          '벼 (여름철 고온 다우한 환경 활용)',
+          '올리브 (여름철 고온 건조한 환경 활용)',
+          '호밀과 감자 (겨울철 혹한 환경 활용)',
+          '대추야자 (연중 메마른 사막 환경 활용)'
+        ],
+        answerIdx: 0,
+        desc: 'Cw 기후는 여름철에 고온 다우하여 물이 많이 필요한 벼농사에 매우 유리합니다.'
+      },
+      'cs': {
+        name: '지중해성 기후 (Cs)',
+        question: '지중해성 기후대(Cs)에서 여름철 뜨겁고 메마른 날씨를 극복하기 위해 발달한 농업 작물로 가장 올바른 조합은?',
+        options: [
+          '올리브, 오렌지, 포도, 코르크 참나무',
+          '벼, 사탕수수, 카카오, 고무나무',
+          '호밀, 밀, 보리, 사탕무',
+          '순록 이끼, 대추야자, 목재'
+        ],
+        answerIdx: 0,
+        desc: '지중해성 기후의 여름은 매우 건조하여 가뭄을 잘 견디는 올리브, 포도, 오렌지 등의 수목 농업이 발달했습니다.'
+      },
+      'cfb': {
+        name: '서안 해양성 기후 (Cfb)',
+        question: '서안 해양성 기후대(Cfb)에서 기온이 서늘하고 연중 강수가 고른 특성에 따라 발달한 복합적인 농업 형태는?',
+        options: [
+          '식량 작물 재배와 가축 사육을 함께하는 혼합 농업 및 낙농업',
+          '오아시스 주변에서 밀과 대추야자를 재배하는 관개 농업',
+          '대규모 기업형 목장 형태로 소와 양을 방목하는 유목업',
+          '화전을 일구어 카사바와 얌을 재배하는 이동식 화전 농업'
+        ],
+        answerIdx: 0,
+        desc: 'Cfb 기후는 여름이 서늘하여 곡물 농업만으로는 불리하므로, 사료 작물을 재배하여 가축을 키우는 혼합 농업과 낙농업이 발달했습니다.'
+      },
+      'cfa': {
+        name: '온난 습윤 기후 (Cfa)',
+        question: '온난 습윤 기후대(Cfa)에서 나타나는 주민들의 식생활 특징으로 가장 적절한 것은?',
+        options: [
+          '여름철 고온 다습한 날씨 때문에 음식을 소금이나 향신료에 절여 보관하는 문화 발달',
+          '농업이 불가능하여 연중 잡은 물고기와 순록 고기를 날것으로 섭취하는 문화 발달',
+          '수목 농업으로 재배한 올리브 오일과 포도주를 모든 음식에 기본으로 곁들이는 문화 발달',
+          '식량 생산이 극도로 부족하여 주로 동물의 우유와 치즈만을 주식으로 삼는 문화 발달'
+        ],
+        answerIdx: 0,
+        desc: 'Cfa 기후는 여름철에 매우 기온이 높고 습하여 음식을 오래 보관하기 위해 염장(절임)이나 조미료를 적극적으로 활용합니다.'
+      },
+      'df': {
+        name: '냉대 습윤 기후 (Df)',
+        question: '냉대 습윤 기후대(Df)에서 풍부하게 침엽수림(타이가)을 구할 수 있는 자연환경을 반영하여 전통적으로 지은 가옥은?',
+        options: [
+          '통나무집 (지붕 경사가 가파름)',
+          '고상 가옥 (바닥을 공중에 띄움)',
+          '흙집 (창문이 매우 작음)',
+          '석회 가옥 (하얀색 벽면 활용)'
+        ],
+        answerIdx: 0,
+        desc: '냉대 기후는 타이가 지대에 침엽수가 풍부하므로 이를 활용한 통나무집을 주로 지었으며, 지붕은 폭설 방지를 위해 가파르게 만듭니다.'
+      },
+      'dw': {
+        name: '냉대 겨울 건조 기후 (Dw)',
+        question: '냉대 겨울 건조 기후대(Dw)에서 길고 추운 겨울을 버티기 위한 의생활 특징으로 가장 어울리는 것은?',
+        options: [
+          '두꺼운 털가죽 옷과 털모자, 가죽 방한화 착용',
+          '통풍이 잘 되고 가벼운 삼베나 모시 옷 착용',
+          '햇빛 반사를 위해 온몸을 덮는 하얀 면 셔츠 착용',
+          '방수가 잘 되고 얇은 비닐 재질의 우비 착용'
+        ],
+        answerIdx: 0,
+        desc: 'Dw 기후는 세계에서 가장 겨울 추위가 매서운 지역 중 하나이므로 두꺼운 모피나 가죽 방한복이 필수적입니다.'
+      },
+      'et': {
+        name: '툰드라 기후 (ET)',
+        question: '툰드라 기후대(ET)에서 한여름 지표면 영구동토층의 일부가 녹으면서 발생하는 가옥의 뒤틀림을 방지하기 위한 건축 지혜는?',
+        options: [
+          '기둥을 얼지 않는 영구동토층 깊이 박고 바닥을 지면에서 띄우는 고상 가옥',
+          '빙판 위에서 이동하기 쉽도록 바퀴가 달린 이동식 돔 텐트 가옥',
+          '여름철 홍수에 침수되는 것을 막기 위해 강물 위에 띄운 수상 가옥',
+          '주변의 마른 모래를 다져서 햇빛 열기를 흡수하는 지하 터널식 흙집'
+        ],
+        answerIdx: 0,
+        desc: '툰드라 기후는 여름철 활동층(지표면)이 녹으면서 집이 무너지거나 기울 수 있기 때문에, 기둥을 단단한 영구동토층에 박고 바닥을 띄워 짓습니다.'
+      },
+      'ef': {
+        name: '빙설 기후 (EF)',
+        question: '빙설 기후대(EF)의 극한 추위 속에서 영구적인 농업 활동이 불가능함에 따라 나타나는 주민 식생활 모습은?',
+        options: [
+          '현지 작물 재배가 완전히 불가하여 외부로부터 식량을 수입하거나 전통적으로 수렵에 의존',
+          '벼농사와 수목 농업을 번갈아 행하여 풍부한 채소 중심의 식생활',
+          '강수량이 높은 이점을 살려 사탕수수와 고구마를 주식으로 삼는 문화',
+          '올리브나무 껍질과 보리를 혼합해 구운 건조 비스킷 위주의 식생활'
+        ],
+        answerIdx: 0,
+        desc: '빙설 기후는 연중 평균 기온이 0도 미만으로 땅이 항상 얼어있어 어떠한 농사도 지을 수 없고, 외부 조달이나 수렵에만 의존합니다.'
+      },
+      'h': {
+        name: '고산 기후 (H)',
+        question: '해발고도가 매우 높은 고산 기후대(H - 예: 안데스 고원)에서 고대 인카 문명 등의 도시가 발달할 수 있었던 기후적 배경은?',
+        options: [
+          '연중 봄과 같이 온화하고 일정한 날씨(상춘 기후)가 지속되기 때문에',
+          '여름철에 집중적으로 열대 우림과 같이 강수량이 쏟아지기 때문에',
+          '겨울철 기온이 영하로 내려가지 않아 쌀농사가 3기작까지 가능하기 때문에',
+          '메마른 건조 초원지대로서 대규모 목양 및 말 방목이 발달했기 때문에'
+        ],
+        answerIdx: 0,
+        desc: '고산 기후는 위도가 낮아도 해발고도가 높아 연중 15도 내외의 맑고 아늑한 봄날씨(상춘 기후)가 계속되어 인간이 살기 좋습니다.'
+      }
+    };
+
+    let quizQuestions = [];
+    let currentQuestionIdx = 0;
+    let quizPhase = 'climate'; // 'climate' or 'lifestyle'
+    let quizScore = 0;
+
+    function startQuiz() {
+      const keys = Object.keys(quizDatabase);
+      const shuffledKeys = shuffle([...keys]);
+      quizQuestions = shuffledKeys.slice(0, 5);
+      
+      currentQuestionIdx = 0;
+      quizScore = 0;
+
+      document.getElementById('quizStartCover').style.display = 'none';
+      document.getElementById('quizScoreScreen').style.display = 'none';
+      document.getElementById('quizPlayScreen').style.display = 'flex';
+      document.getElementById('quizFeedback').classList.remove('active');
+
+      loadQuizQuestion();
+    }
+    window.startQuiz = startQuiz;
+
+    function loadQuizQuestion() {
+      quizPhase = 'climate';
+      document.getElementById('quizFeedback').classList.remove('active');
+      document.getElementById('quizStageTitle').innerText = '1단계: 기후 맞추기';
+      document.getElementById('quizProgress').innerText = `문제 ${currentQuestionIdx + 1} / 5`;
+      document.getElementById('quizQuestion').innerText = '❓ 위 그래프는 어떤 기후대일까요? 아래 보기에서 골라주세요.';
+
+      const currentCode = quizQuestions[currentQuestionIdx];
+      const correctName = quizDatabase[currentCode].name;
+
+      // 그래프 업데이트
+      const container = document.getElementById('quizChartContainer');
+      container.setAttribute('data-chart', currentCode);
+      container.setAttribute('data-hemisphere', 'north');
+      drawClimateChart(container, currentCode);
+
+      // 보기 생성 (정답 1개 + 오답 3개)
+      const allKeys = Object.keys(quizDatabase);
+      const wrongKeys = allKeys.filter(k => k !== currentCode);
+      const shuffledWrong = shuffle(wrongKeys);
+      const wrongNames = shuffledWrong.slice(0, 3).map(k => quizDatabase[k].name);
+
+      const options = shuffle([correctName, ...wrongNames]);
+      
+      const optionsEl = document.getElementById('quizOptions');
+      optionsEl.innerHTML = '';
+
+      options.forEach(optionText => {
+        const btn = document.createElement('button');
+        btn.className = 'sim-btn';
+        btn.innerHTML = `${optionText} <span>➡️</span>`;
+        btn.addEventListener('click', () => {
+          checkClimateAnswer(btn, optionText, correctName);
+        });
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function checkClimateAnswer(clickedBtn, selectedName, correctName) {
+      if (quizPhase !== 'climate') return;
+
+      if (selectedName === correctName) {
+        clickedBtn.classList.add('correct');
+        document.querySelectorAll('#quizOptions .sim-btn').forEach(btn => {
+          if (btn !== clickedBtn) btn.style.opacity = '0.5';
+          btn.style.pointerEvents = 'none';
+        });
+
+        quizScore += 1;
+
+        document.getElementById('quizQuestion').innerHTML = '<span style="color: #2b8a3e; font-weight: 900;">🎉 정답입니다!</span> 잠시 후 2단계 의식주 퀴즈로 이동합니다...';
+        
+        setTimeout(() => {
+          loadLifestyleQuiz();
+        }, 1200);
+      } else {
+        clickedBtn.classList.add('wrong');
+        shakeElement(clickedBtn);
+      }
+    }
+
+    function loadLifestyleQuiz() {
+      quizPhase = 'lifestyle';
+      document.getElementById('quizStageTitle').innerText = '2단계: 의식주 생활 퀴즈';
+      
+      const currentCode = quizQuestions[currentQuestionIdx];
+      const quizItem = quizDatabase[currentCode];
+
+      document.getElementById('quizQuestion').innerText = `❓ ${quizItem.question}`;
+
+      const optionsEl = document.getElementById('quizOptions');
+      optionsEl.innerHTML = '';
+
+      quizItem.options.forEach((optionText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'sim-btn';
+        btn.innerHTML = `${optionText} <span>➡️</span>`;
+        btn.addEventListener('click', () => {
+          checkLifestyleAnswer(btn, idx, quizItem.answerIdx);
+        });
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function checkLifestyleAnswer(clickedBtn, selectedIdx, correctIdx) {
+      if (quizPhase !== 'lifestyle') return;
+
+      const currentCode = quizQuestions[currentQuestionIdx];
+      const quizItem = quizDatabase[currentCode];
+
+      if (selectedIdx === correctIdx) {
+        clickedBtn.classList.add('correct');
+        document.querySelectorAll('#quizOptions .sim-btn').forEach(btn => {
+          if (btn !== clickedBtn) btn.style.opacity = '0.5';
+          btn.style.pointerEvents = 'none';
+        });
+
+        quizScore += 1;
+
+        const feedbackEl = document.getElementById('quizFeedback');
+        document.getElementById('feedbackResult').innerText = '⭕ 정답입니다! (+1점)';
+        document.getElementById('feedbackTitle').innerText = `${quizItem.name} 주민 생활의 특징`;
+        document.getElementById('feedbackDesc').innerText = quizItem.desc;
+
+        const nextBtn = document.getElementById('nextQuizBtn');
+        if (currentQuestionIdx === 4) {
+          nextBtn.innerText = '최종 결과 보기 🏆';
+        } else {
+          nextBtn.innerText = '다음 문제 풀기 ➡️';
+        }
+
+        feedbackEl.classList.add('active');
+      } else {
+        clickedBtn.classList.add('wrong');
+        shakeElement(clickedBtn);
+      }
+    }
+
+    function nextQuizStep() {
+      currentQuestionIdx++;
+      if (currentQuestionIdx < 5) {
+        loadQuizQuestion();
+      } else {
+        showFinalScore();
+      }
+    }
+    window.nextQuizStep = nextQuizStep;
+
+    function showFinalScore() {
+      document.getElementById('quizPlayScreen').style.display = 'none';
+      document.getElementById('quizFeedback').classList.remove('active');
+      
+      const scoreScreen = document.getElementById('quizScoreScreen');
+      scoreScreen.style.display = 'flex';
+
+      const maxScore = 10;
+      document.getElementById('finalScoreText').innerText = `${quizScore}점 / ${maxScore}점`;
+
+      let comment = '';
+      if (quizScore === 10) {
+        comment = '대단합니다! 쾨펜의 후계자이자 통합사회 지리 마스터이시군요! 👑';
+      } else if (quizScore >= 8) {
+        comment = '훌륭합니다! 쾨펜 분류법과 세계 기후대별 생활 방식을 정확히 꿰뚫고 있어요! ☀️';
+      } else if (quizScore >= 5) {
+        comment = '기본기는 갖춰져 있네요! 조금만 더 쾨펜 기후도감을 꼼꼼히 관찰해보면 마스터할 수 있습니다. 📖';
+      } else {
+        comment = '조금 어려웠나요? 도감 탭에서 기후 특징과 주민 생활을 다시 살펴보고 다시 도전해보세요! 🌲';
+      }
+      document.getElementById('finalScoreComment').innerText = comment;
+    }
+
+    function resetQuizGame() {
+      document.getElementById('quizScoreScreen').style.display = 'none';
+      document.getElementById('quizPlayScreen').style.display = 'none';
+      document.getElementById('quizFeedback').classList.remove('active');
+      document.getElementById('quizStartCover').style.display = 'flex';
+      
+      body.className = 'theme-temperate';
+    }
+    window.resetQuizGame = resetQuizGame;
+
+    function shakeElement(el) {
+      el.animate([
+        { transform: 'translateX(0)' },
+        { transform: 'translateX(-6px)' },
+        { transform: 'translateX(6px)' },
+        { transform: 'translateX(-4px)' },
+        { transform: 'translateX(4px)' },
+        { transform: 'translateX(0)' }
+      ], {
+        duration: 350,
+        easing: 'ease-in-out'
+      });
+    }
+
+    // 배열 셔플 알고리즘
+    function shuffle(array) {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      return array;
+    }
+
+    // ----------------------------------------------------
+    // 4. 단어 바구니(Word Bank) 관리 및 상태 동기화
+    // ----------------------------------------------------
+    function initWordBank() {
+      const activeSec = document.querySelector('.climate-section.active');
+      if (!activeSec) return;
+
+      const chipsContainer = activeSec.querySelector('.word-bank-chips');
+      if (!chipsContainer) return;
+
+      chipsContainer.innerHTML = '';
+
+      const currentBlanks = activeSec.querySelectorAll('.blank');
+      const answers = [];
+      currentBlanks.forEach(blank => {
+        const ans = blank.getAttribute('data-answer');
+        if (ans) answers.push(ans);
+      });
+
+      const shuffledAnswers = shuffle([...answers]);
+      shuffledAnswers.forEach(word => {
+        const chip = document.createElement('div');
+        chip.className = 'word-chip';
+        chip.setAttribute('data-word', word);
+        chip.innerText = word;
+        chip.draggable = true;
+
+        chip.addEventListener('dragstart', handleDragStart);
+        chip.addEventListener('click', handleChipClick);
+
+        chipsContainer.appendChild(chip);
+      });
+
+      updateWordBankStatus();
+    }
+
+    function updateWordBankStatus() {
+      const activeSec = document.querySelector('.climate-section.active');
+      if (!activeSec) return;
+
+      const chips = activeSec.querySelectorAll('.word-chip');
+      chips.forEach(c => c.classList.remove('used'));
+
+      const revealedBlanks = activeSec.querySelectorAll('.blank.revealed');
+      revealedBlanks.forEach(blank => {
+        const ans = blank.getAttribute('data-answer');
+        for (let chip of chips) {
+          if (chip.getAttribute('data-word') === ans && !chip.classList.contains('used')) {
+            chip.classList.add('used');
+            break;
+          }
+        }
+      });
+    }
+
+    // ----------------------------------------------------
+    // 5. 슬롯형 매칭 인터랙션 핸들러
+    // ----------------------------------------------------
+    function handleChipClick(e) {
+      const chip = e.currentTarget;
+      if (chip.classList.contains('selected')) {
+        chip.classList.remove('selected');
+        selectedChip = null;
+      } else {
+        document.querySelectorAll('.word-chip.selected').forEach(c => c.classList.remove('selected'));
+        chip.classList.add('selected');
+        selectedChip = chip;
+      }
+    }
+
+    function handleDragStart(e) {
+      e.dataTransfer.setData('text/plain', e.target.getAttribute('data-word'));
+      document.querySelectorAll('.word-chip.selected').forEach(c => c.classList.remove('selected'));
+      e.target.classList.add('selected');
+      selectedChip = e.target;
+    }
+
+    function revealBlank(blank) {
+      blank.classList.add('revealed');
+      blank.innerText = blank.getAttribute('data-answer');
+      updateWordBankStatus();
+    }
+
+    function resetBlank(blank) {
+      blank.classList.remove('revealed');
+      blank.innerText = '';
+      updateWordBankStatus();
+    }
+
+    function shakeBlank(blank) {
+      blank.animate([
+        { transform: 'translateX(0)', borderColor: '#e03131', backgroundColor: 'rgba(224, 49, 49, 0.15)' },
+        { transform: 'translateX(-6px)', borderColor: '#e03131', backgroundColor: 'rgba(224, 49, 49, 0.15)' },
+        { transform: 'translateX(6px)', borderColor: '#e03131', backgroundColor: 'rgba(224, 49, 49, 0.15)' },
+        { transform: 'translateX(-4px)', borderColor: '#e03131', backgroundColor: 'rgba(224, 49, 49, 0.15)' },
+        { transform: 'translateX(4px)', borderColor: '#e03131', backgroundColor: 'rgba(224, 49, 49, 0.15)' },
+        { transform: 'translateX(0)' }
+      ], {
+        duration: 400,
+        easing: 'ease-in-out'
+      });
+    }
+
+    function initBlankEvents() {
+      const blanks = document.querySelectorAll('.blank');
+      blanks.forEach(blank => {
+        blank.addEventListener('dragover', (e) => {
+          e.preventDefault();
+        });
+
+        blank.addEventListener('drop', (e) => {
+          e.preventDefault();
+          const wordVal = e.dataTransfer.getData('text/plain') || (selectedChip ? selectedChip.getAttribute('data-word') : '');
+          const ansVal = blank.getAttribute('data-answer');
+
+          if (wordVal === ansVal) {
+            revealBlank(blank);
+          } else {
+            shakeBlank(blank);
+          }
+
+          if (selectedChip) {
+            selectedChip.classList.remove('selected');
+            selectedChip = null;
+          }
+        });
+
+        blank.addEventListener('click', () => {
+          if (!quizToggle.checked) return;
+
+          if (blank.classList.contains('revealed')) {
+            resetBlank(blank);
+            return;
+          }
+
+          if (selectedChip) {
+            const wordVal = selectedChip.getAttribute('data-word');
+            const ansVal = blank.getAttribute('data-answer');
+
+            if (wordVal === ansVal) {
+              revealBlank(blank);
+            } else {
+              shakeBlank(blank);
+            }
+
+            selectedChip.classList.remove('selected');
+            selectedChip = null;
+          } else {
+            revealBlank(blank);
+          }
+        });
+      });
+    }
+
+    // ----------------------------------------------------
+    // 6. 화면(DOM) 상태 및 모드 갱신 함수
+    // ----------------------------------------------------
+    function switchTopic(topic) {
+      activeTopic = topic;
+      topicButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-topic') === topic);
+      });
+
+      // 퀴즈 제어부 숨김 제어 (기후도감 탭에서는 숨김)
+      if (topic === 'encyclopedia') {
+        settingsGroup.style.display = 'none';
+      } else {
+        settingsGroup.style.display = 'flex';
+      }
+
+      if (topic === 'climate') {
+        climateSubtabs.style.display = 'flex';
+        landformSubtabs.style.display = 'none';
+        encyclopediaSubtabs.style.display = 'none';
+        switchSection('climate', activeClimate);
+      } else if (topic === 'landform') {
+        climateSubtabs.style.display = 'none';
+        landformSubtabs.style.display = 'flex';
+        encyclopediaSubtabs.style.display = 'none';
+        switchSection('landform', activeLandform);
+      } else {
+        climateSubtabs.style.display = 'none';
+        landformSubtabs.style.display = 'none';
+        encyclopediaSubtabs.style.display = 'flex';
+        switchSection('encyclopedia', activeEncyclopedia);
+      }
+    }
+
+    function switchSection(topic, sectionKey) {
+      if (topic === 'climate') {
+        activeClimate = sectionKey;
+        climateTabButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-climate') === sectionKey);
+        });
+      } else if (topic === 'landform') {
+        activeLandform = sectionKey;
+        landformTabButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-landform') === sectionKey);
+        });
+      } else {
+        activeEncyclopedia = sectionKey;
+        encyclopediaTabButtons.forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-encyclopedia') === sectionKey);
+        });
+      }
+
+      // 섹션 전환
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      let targetId = '';
+      let themeClass = '';
+      if (topic === 'climate') {
+        targetId = `sec-${sectionKey}`;
+        themeClass = `theme-${sectionKey}`;
+      } else if (topic === 'landform') {
+        if (['river', 'karst', 'volcano', 'glacier'].includes(sectionKey)) {
+          targetId = `sec-special-${sectionKey}`;
+        } else {
+          targetId = `sec-${sectionKey}`;
+        }
+        themeClass = `theme-${sectionKey}`;
+      } else {
+        targetId = `sec-encyclopedia-${sectionKey}`;
+        // 도감 메인 가이드는 온대 기후 테마 적용, 그 외는 각 기후대별 테마 적용
+        themeClass = `theme-${sectionKey === 'guide' ? 'temperate' : sectionKey === 'polar' ? 'polar' : sectionKey === 'highland' ? 'mountain' : sectionKey}`;
+      }
+
+      const targetSec = document.getElementById(targetId);
+      if (targetSec) {
+        targetSec.classList.add('active');
+      }
+
+      body.className = themeClass;
+
+      if (targetSec) {
+        targetSec.querySelectorAll('.chart-container').forEach(container => {
+          const chartType = container.getAttribute('data-chart');
+          drawClimateChart(container, chartType);
+        });
+      }
+
+      // 쾨펜 퀴즈게임 초기화 (가이드 섹션 전환 시)
+      if (topic === 'encyclopedia' && sectionKey === 'guide') {
+        resetQuizGame();
+      }
+
+      syncQuizMode();
+    }
+
+    function syncQuizMode() {
+      const isQuiz = quizToggle.checked;
+      const activeSec = document.querySelector('.climate-section.active');
+      if (!activeSec) return;
+
+      const blanks = activeSec.querySelectorAll('.blank');
+      const wordBank = activeSec.querySelector('.word-bank');
+
+      if (isQuiz) {
+        blanks.forEach(blank => {
+          if (!blank.classList.contains('revealed')) {
+            blank.innerText = '';
+          }
+          blank.style.pointerEvents = 'auto';
+        });
+        if (wordBank) wordBank.style.display = 'block';
+        initWordBank();
+      } else {
+        blanks.forEach(blank => {
+          blank.classList.add('revealed');
+          blank.innerText = blank.getAttribute('data-answer');
+          blank.style.pointerEvents = 'none';
+        });
+        if (wordBank) wordBank.style.display = 'none';
+      }
+    }
+
+    // ----------------------------------------------------
+    // 7. 이벤트 리스너 바인딩
+    // ----------------------------------------------------
+    topicButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTopic(btn.getAttribute('data-topic'));
+      });
+    });
+
+    climateTabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchSection('climate', btn.getAttribute('data-climate'));
+      });
+    });
+
+    landformTabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchSection('landform', btn.getAttribute('data-landform'));
+      });
+    });
+
+    encyclopediaTabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchSection('encyclopedia', btn.getAttribute('data-encyclopedia'));
+      });
+    });
+
+    quizToggle.addEventListener('change', () => {
+      syncQuizMode();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      const activeSec = document.querySelector('.climate-section.active');
+      if (!activeSec) return;
+      activeSec.querySelectorAll('.blank').forEach(blank => {
+        resetBlank(blank);
+      });
+      initWordBank();
+      
+      activeSec.querySelectorAll('.chart-container').forEach(container => {
+        container.setAttribute('data-hemisphere', 'north');
+        const chartType = container.getAttribute('data-chart');
+        drawClimateChart(container, chartType);
+        
+        const card = container.closest('.card-item');
+        if (card) {
+          const titleEl = card.querySelector('.card-item-title');
+          if (titleEl) {
+            titleEl.innerText = titleEl.innerText.replace(/\s*\(북반구\)/g, '').replace(/\s*\(남반구\)/g, '');
+          }
+        }
+      });
+    });
+
+    function initChartToggle() {
+      const cards = document.querySelectorAll('.card-item, .encyclopedia-card');
+      cards.forEach(card => {
+        const container = card.querySelector('.chart-container');
+        if (!container) return;
+        
+        card.style.cursor = 'pointer';
+        card.title = '클릭하면 남반구/북반구 기후 그래프로 전환됩니다';
+        
+        card.addEventListener('click', () => {
+          const currentHemi = container.getAttribute('data-hemisphere') || 'north';
+          const newHemi = currentHemi === 'north' ? 'south' : 'north';
+          container.setAttribute('data-hemisphere', newHemi);
+          
+          const chartType = container.getAttribute('data-chart');
+          drawClimateChart(container, chartType);
+          
+          const titleEl = card.querySelector('.card-item-title, .encyclopedia-title');
+          if (titleEl) {
+            let baseText = titleEl.innerText;
+            baseText = baseText.replace(/\s*\(북반구\)/g, '').replace(/\s*\(남반구\)/g, '');
+            if (newHemi === 'south') {
+              titleEl.innerText = baseText + ' (남반구)';
+            } else {
+              titleEl.innerText = baseText + ' (북반구)';
+            }
+          }
+        });
+      });
+    }
+
+    // ----------------------------------------------------
+    // 8. 초기화 구동
+    // ----------------------------------------------------
+    initBlankEvents();
+    initChartToggle();
+    switchTopic('climate');
+  </script>
+  <!--
     const topicButtons = document.querySelectorAll('.topic-btn');
     const climateSubtabs = document.getElementById('climate-subtabs');
     const landformSubtabs = document.getElementById('landform-subtabs');
@@ -2199,5 +3533,6 @@
     initChartToggle();
     switchTopic('climate');
   </script>
+  -->
 </body>
 </html>
